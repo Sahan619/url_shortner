@@ -1,1 +1,40 @@
-<p>layout works!</p>
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <h2>LinkTrack</h2>
+      <span>URL Management</span>
+    </div>
+
+    <nav class="navigation">
+      <a routerLink="/dashboard" routerLinkActive="active">
+        Dashboard
+      </a>
+
+      <a routerLink="/urls" routerLinkActive="active">
+        My URLs
+      </a>
+
+      <a routerLink="/analytics" routerLinkActive="active">
+        Analytics
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>LinkTrack v1.0</span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <h3>URL Management Dashboard</h3>
+      <div class="user-profile">User</div>
+    </header>
+
+    <section class="page-content">
+      <router-outlet />
+    </section>
+  </main>
+
+</div>

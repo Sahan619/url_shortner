@@ -1,1 +1,120 @@
-<p>dashboard works!</p>
+
+<div class="dashboard">
+
+  <!-- Page heading -->
+  <div class="page-heading">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome back! Here's an overview of your links.</p>
+    </div>
+
+    <button class="create-button">
+      + Create New URL
+    </button>
+  </div>
+
+  <!-- Statistics cards -->
+  <div class="stats-grid">
+
+    @for (stat of stats; track stat.title) {
+      <div class="stat-card">
+
+        <div class="stat-info">
+          <p>{{ stat.title }}</p>
+          <h2>{{ stat.value }}</h2>
+        </div>
+
+        <div class="stat-icon">
+          {{ stat.icon }}
+        </div>
+
+      </div>
+    }
+
+  </div>
+
+<!-- Quick URL Creation -->
+<section class="create-url-section">
+
+  <div class="section-heading">
+    <div>
+      <h2>Shorten a URL</h2>
+      <p>Convert your long URL into a short, shareable link.</p>
+    </div>
+  </div>
+
+  <div class="url-form">
+
+    <div class="form-group">
+      <label for="longUrl">Destination URL</label>
+      <input
+        type="url"
+        id="longUrl"
+        placeholder="https://example.com/your-long-url"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="customAlias">Custom alias (optional)</label>
+      <input
+        type="text"
+        id="customAlias"
+        placeholder="my-custom-link"
+      />
+    </div>
+
+    <button type="button" class="shorten-button">
+      Shorten URL
+    </button>
+
+  </div>
+
+</section>
+
+<!-- Recent URLs -->
+<section class="recent-urls-section">
+
+  <div class="section-heading">
+    <div>
+      <h2>Recent URLs</h2>
+      <p>Your recently created shortened links.</p>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Short URL</th>
+          <th>Clicks</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (url of recentUrls; track url.shortUrl) {
+          <tr>
+            <td class="original-url">{{ url.originalUrl }}</td>
+            <td class="short-url">{{ url.shortUrl }}</td>
+            <td>{{ url.clicks }}</td>
+            <td>
+              <span
+                class="status"
+                [class.active]="url.status === 'Active'"
+                [class.expired]="url.status === 'Expired'"
+              >
+                {{ url.status }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+
+
+</div>
