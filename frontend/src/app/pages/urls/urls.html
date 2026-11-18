@@ -1,1 +1,103 @@
-<p>urls works!</p>
+
+<div class="urls-page">
+
+  <div class="page-heading">
+    <div>
+      <h1>My URLs</h1>
+      <p>Manage and track all your shortened URLs.</p>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-section">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by original URL or short URL..."
+    />
+  </div>
+  <div class="filter-section">
+  <button
+    type="button"
+    [class.selected]="selectedStatus === 'All'"
+    (click)="selectedStatus = 'All'"
+  >
+    All URLs
+  </button>
+
+  <button
+    type="button"
+    [class.selected]="selectedStatus === 'Active'"
+    (click)="selectedStatus = 'Active'"
+  >
+    Active
+  </button>
+
+  <button
+    type="button"
+    [class.selected]="selectedStatus === 'Expired'"
+    (click)="selectedStatus = 'Expired'"
+  >
+    Expired
+  </button>
+</div>
+
+  <!-- URL Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Short URL</th>
+          <th>Clicks</th>
+          <th>Created Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (url of filteredUrls; track url.shortUrl) {
+          <tr>
+            <td class="original-url">{{ url.originalUrl }}</td>
+
+            <td class="short-url">{{ url.shortUrl }}</td>
+
+            <td>{{ url.clicks }}</td>
+
+            <td>{{ url.createdAt }}</td>
+
+            <td>
+              <span
+                class="status"
+                [class.active]="url.status === 'Active'"
+                [class.expired]="url.status === 'Expired'"
+              >
+                {{ url.status }}
+              </span>
+            </td>
+
+            <td class="actions">
+              <button
+  type="button"
+  title="Copy URL"
+  (click)="copyUrl(url.shortUrl)"
+>
+  Copy
+</button>
+              <button
+  type="button"
+  class="delete-button"
+  title="Delete URL"
+  (click)="deleteUrl(url.shortUrl)"
+>
+  Delete
+</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>

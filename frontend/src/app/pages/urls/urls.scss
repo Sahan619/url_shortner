@@ -1,0 +1,167 @@
+
+.urls-page {
+  color: #1e293b;
+}
+
+/* Page heading */
+.page-heading {
+  margin-bottom: 25px;
+
+  h1 {
+    font-size: 25px;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+  }
+}
+
+/* Search section */
+.search-section {
+  background: white;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 13px;
+    outline: none;
+
+    &:focus {
+      border-color: #0891b2;
+      box-shadow: 0 0 0 2px #cffafe;
+    }
+  }
+}
+
+/* Table */
+.table-container {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+
+  th {
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    padding: 15px;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 16px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #334155;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* URL columns */
+.original-url {
+  max-width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.short-url {
+  color: #0891b2;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Status */
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+
+  &.active {
+    background: #dcfce7;
+    color: #15803d;
+  }
+
+  &.expired {
+    background: #fee2e2;
+    color: #b91c1c;
+  }
+}
+
+/* Actions */
+.actions {
+  white-space: nowrap;
+
+  button {
+    border: none;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 6px;
+
+    &:hover {
+      background: #bae6fd;
+    }
+  }
+
+  .delete-button {
+    background: #fee2e2;
+    color: #b91c1c;
+
+    &:hover {
+      background: #fecaca;
+    }
+  }
+}
+.filter-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 9px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    background: white;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 13px;
+
+    &:hover {
+      background: #f1f5f9;
+    }
+
+    &.selected {
+      background: #0891b2;
+      color: white;
+      border-color: #0891b2;
+    }
+  }
+}
